@@ -32,6 +32,17 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#include <math.h>
+#include <limits.h>
+#include <string.h>
+#include <assert.h>
+#include <errno.h>
+#include <windows.h>
+#include <memory.h>
+
+
+#include "leafgame2d.h"
+
 ////////////////////////////////////// START OF BRAIN.C ////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -39,7 +50,7 @@
  * Version: [Origin: 1.0], [Modified: 1.1]
  * Author(s): Lewis Van Winkle<LV@codeplea.com>, suncloudsmoon
  * Origin: https://github.com/codeplea/genann/blob/master/genann.c
- * License: MIT & Zlib
+ * License: Zlib
  */
 
 /*
@@ -78,15 +89,6 @@
  *
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <string.h>
-#include <assert.h>
-#include <errno.h>
-
-#include "brain.h"
-
 #ifndef leaf_brain_act
 #define leaf_brain_act_hidden leaf_brain_act_hidden_indirect
 #define leaf_brain_act_output leaf_brain_act_output_indirect
@@ -120,7 +122,6 @@ double lookup[LOOKUP_SIZE];
 #define unused
 #pragma warning(disable : 4996) /* For fscanf */
 #endif
-
 
 double leaf_brain_act_sigmoid(const leaf_brain *ann unused, double a) {
     if (a < -45.0) return 0;
@@ -471,15 +472,6 @@ void leaf_brain_write(leaf_brain const *ann, FILE *out) {
  * License: MIT
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
-#include <windows.h>
-
-#include "stringbasics.h"
-#include "commandbasics.h"
-
 static char** locations;
 static int numLocations = 1000;
 static int locationPos = 0;
@@ -562,34 +554,6 @@ void leaf_freeCommandBasics() {
  * License: MIT
  */
 
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include "filemanager.h"
-
 // Local Functions
 static void addMemory(int num, char *input);
 static int getFileLength(FILE *file);
@@ -639,32 +603,6 @@ static void addMemory(int num, char *input) {
  * License: MIT
  */
 
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "licensemanager.h"
 
 //////////////////////////////////////////////////// END OF LICENSEMANAGER.C //////////////////////////////////////////////////
 
@@ -676,36 +614,6 @@ static void addMemory(int num, char *input) {
  * Origin: N/A
  * License: MIT
  */
-
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <limits.h>
-
-#include "noobencryption.h"
 
 static long double a = 37, c = 997, m = INT_MAX;
 static long double randNum;
@@ -728,16 +636,11 @@ char* leaf_encrypt(double key, char *data) {
         } else {
             output[pos] = ascii + rand;
         }
-
-        // Debug
-        // printf("[Debug] Encoded Character: %d\n", output[pos]);
-
-
     }
     output[length] = '\0';
 
     // Debug
-    printf("[Debug] Length of data string: %d\n", length);
+    // printf("[Debug] Length of data string: %d\n", length);
 
     return output;
 }
@@ -799,28 +702,6 @@ int leaf_cryptorand() {
  * License: Public Domain
  */
 
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
 //////////////////////// Original Author Stuff [Start] /////////////////////////////////////////////
 
 // noise1234
@@ -853,12 +734,6 @@ int leaf_cryptorand() {
 //////////////////////// Original Author Stuff [End] /////////////////////////////////////////////
 
 /// Header Include Stuff ///
-
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "perlin.h"
-
 
 // This is the new and improved, C(2) continuous interpolant
 #define FADE(t) ( t * t * t * ( t * ( t * 6 - 15 ) + 10 ) )
@@ -1102,33 +977,6 @@ static float pnoise2( float x, float y, int px, int py ) {
  * License: MIT
  */
 
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "simplemalloc.h"
-
 char* leaf_charmalloc(int length) {
     return (char *) (malloc(length * sizeof(char)));
 }
@@ -1150,34 +998,6 @@ Author(s): suncloudsmoon
 Origin: N/A
 License: MIT
 */
-
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-#include "urlcreator.h"
 
 /**
 Creates a URL shortcut according to the attributes in the Shortcut struct memory block.
@@ -1211,29 +1031,7 @@ void leaf_createURLShortcut(leaf_shortcut *link) {
  * Origin: https://github.com/WaterJuice/WjCryptLib/blob/master/lib/WjCryptLib_Sha256.c
  * Version: [Origin: Mar 15, 2018], [Modified: May 10, 2021]
  * Author(s): Tom St Denis<tomstdenis@gmail.com>, WaterJuice<https://github.com/WaterJuice>, suncloudsmoon
- * License: MIT & Unlicense<https://github.com/WaterJuice/WjCryptLib/blob/master/UNLICENSE>
- */
-
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * License: Unlicense<https://github.com/WaterJuice/WjCryptLib/blob/master/UNLICENSE>
  */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1250,8 +1048,7 @@ void leaf_createURLShortcut(leaf_shortcut *link) {
 //  IMPORTS
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "WjCryptLib_Sha256.h"
-#include <memory.h>
+// #include <memory.h>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //  MACROS

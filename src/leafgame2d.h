@@ -31,6 +31,12 @@
 #ifndef LEAFGAME2D_H_INCLUDED
 #define LEAFGAME2D_H_INCLUDED
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+
 /////////////////////////// START OF BRAIN.H /////////////////////////////////////////////////////////////////////////////
 /*
 Description: An "interface" of brain.c with a bunch of prototyped functions
@@ -75,9 +81,6 @@ Also, we did not write the original software and this is not the original softwa
  * 3. This notice may not be removed or altered from any source distribution.
  *
  */
-
-#ifndef BRAIN_H
-#define BRAIN_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -151,14 +154,6 @@ double leaf_brain_act_threshold(const leaf_brain *ann, double a);
 double leaf_brain_act_linear(const leaf_brain *ann, double a);
 
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif /*BRAIN_H*/
-
-#endif // LEAFGAME2D_H_INCLUDED
-
 ///////////////////////////////////////////////////////////// END OF BRAIN.H ////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////// START OF COMMANDBASICS.H ///////////////////////////////////////////////
@@ -171,36 +166,10 @@ double leaf_brain_act_linear(const leaf_brain *ann, double a);
  * License: MIT
 */
 
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#ifndef COMMANDBASICS_H_INCLUDED
-#define COMMANDBASICS_H_INCLUDED
-
 char* leaf_command(char *command); // Enter a command and get the data back
 char* leaf_getExePath();
 bool leaf_sendToastNotification();
 
-#endif // COMMANDBASICS_H_INCLUDED
 
 //////////////////////////////////////////////////// END OF COMMANDBASICS.H ///////////////////////////////////////////////////
 
@@ -213,35 +182,9 @@ bool leaf_sendToastNotification();
  * License: MIT
 */
 
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#ifndef FILEMANAGER_H_INCLUDED
-#define FILEMANAGER_H_INCLUDED
-
 void leaf_saveFile(char *location, char *data);
 char* leaf_retrieveFile(char *location);
 
-#endif // FILEMANAGER_H_INCLUDED
 
 //////////////////////////////////////////////////// END OF FILEMANAGER.H /////////////////////////////////////////////////
 
@@ -254,34 +197,7 @@ char* leaf_retrieveFile(char *location);
  * License: MIT
 */
 
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#ifndef LICENSEMANAGER_H_INCLUDED
-#define LICENSEMANAGER_H_INCLUDED
-
 #define EULA "[Insert Software Name] End-User License Agreement\n"Non-Commercial" means not primarily intended for or directed towards commercial advantage or monetary compensation. “Contributor” means each individual or legal entity that creates, contributes to the creation of, or owns Covered Software. “Contribution” means Covered Software of a particular Contributor. “Covered Software” means the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files (the "Source") and/or any form resulting from mechanical transformation or translation of a Sourceform, including but not limited to compiled object code, generated documentation, and conversions to other media types. “License” means this document. “Licensable” means having the right to grant, to the maximum extent possible, whether at the time of the initial grant or subsequently, any and all of the rights conveyed by this License. “Patent Claims” of a Contributor means any patent claim(s), including without limitation, method, process, and apparatus claims, in any patent Licensable by such Contributor that would be infringed, but for the grant of the License, by the making, using, selling, offering for sale, having made, import, or transfer of either its Contributions or its Contributor Version. “You” (or “Your”) means an individual or a legal entity exercising rights under this License. For legal entities, “You” includes any entity that controls, is controlled by, or is under common control with You. For purposes of this definition, “control” means (a) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (b) ownership of more than fifty percent (50%) of the outstanding shares or beneficial ownership of such entity.\nThis License is not intended to limit any rights You have under applicable copyright doctrines of fair use, fair dealing, or other equivalents. No Covered Software shall be deemed part of an effective technological measure under any applicable law fulfilling obligations under article 11 of the WIPO copyright treaty adopted on 20 December 1996, or similar laws prohibiting or restricting circumvention of such measures. When Contributors convey a covered work, the Contributors waive any legal power to forbid circumvention of technological measures to the extent such circumvention is effected by exercising rights under this License with respect to the covered work, and the Contributors disclaim any intention to limit operation or modification of the work as a means of enforcing, against the work's users, Contributors or third parties' legal rights to forbid circumvention of technological measures.\nEach Contributor hereby grants You a world-wide, royalty-free, sublicensable, perpetual, non-commercial, non-exclusive license under intellectual property rights (other than patent or trademark) Licensable by such Contributor to use, reproduce, make available, modify, display, perform, distribute, and otherwise exploit its Contributions; and under Patent Claims of such Contributor to make, use, sell, offer for sale, have made, import, and otherwise transfer either its Contributions or its Contributor Version (be collectively known as the "Freedom Grant").\nAfter 8 years from the last copyrighted year stated in the Copyright Notice, each Contributor hereby grants You permission to relicense the Covered Software to a new software license that is stated below (the "Dirt License"):\n"Copyright © [Some Year] - [Some Year], [Project Founder] and the [Project Name] Contributors. All Rights Reserved.\n “License” means the copyright notice(s), definitions (marked by quotes), permissions notice, and liability disclaimer. “Licensable” means having the right to grant, to the maximum extent possible, whether at the time of the initial grant or subsequently, any and all of the rights conveyed by this License. “Contributor” means each individual or legal entity that creates, contributes to the creation of, or owns Covered Software. "You” (or “Your”) means an individual or a legal entity exercising rights under this License. For legal entities, “You” includes any entity that controls, is controlled by, or is under common control with You. For purposes of this definition, “control” means (a) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (b) ownership of more than fifty percent (50%) of the outstanding shares or beneficial ownership of such entity. “Contribution” means Covered Software of a particular Contributor. “Covered Software” means the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files (the "Source") and/or any form resulting from mechanical transformation or translation of a Sourceform, including but not limited to compiled object code, generated documentation, and conversions to other media types. “Patent Claims” of a Contributor means any patent claim(s), including without limitation, method, process, and apparatus claims, in any patent Licensable by such Contributor that would be infringed, but for the grant of the License, by the making, using, selling, offering for sale, having made, import, or transfer of either its Contributions or its Contributor Version.\nEach Contributor hereby grants You a world-wide, royalty-free, sublicensable, perpetual, irrevocable, non-exclusive license under intellectual property rights (other than patent or trademark) Licensable by such Contributor to use, reproduce, make available, modify, display, perform, distribute, and otherwise exploit its Contributions; and under Patent Claims of such Contributor to make, use, sell, offer for sale, have made, import, and otherwise transfer either its Contributions or its Contributor Version, subject to the following conditions:\nThis License shall be included in all copies or substantial portions of the Covered Software.\nANY LITIGATION RELATING TO THIS LICENSE MAY BE BROUGHT ONLY IN THE COURTS OF A JURISDICTION WHERE THE DEFENDANT MAINTAINS ITS PRINCIPAL PLACE OF BUSINESS AND SUCH LITIGATION SHALL BE GOVERNED BY LAWS OF THAT JURISDICTION, WITHOUT REFERENCE TO ITS CONFLICT-OF-LAW PROVISIONS. NOTHING IN THIS SECTION SHALL PREVENT A PARTY’S ABILITY TO BRING CROSS-CLAIMS OR COUNTER-CLAIMS. THIS LICENSE REPRESENTS THE COMPLETE AGREEMENT CONCERNING THE SUBJECT MATTER HEREOF. IF ANY PROVISION OF THIS LICENSE IS HELD TO BE UNENFORCEABLE, SUCH PROVISION SHALL BE REFORMED ONLY TO THE EXTENT NECESSARY TO MAKE IT ENFORCEABLE. ANY LAW OR REGULATION WHICH PROVIDES THAT THE LANGUAGE OF A CONTRACT SHALL BE CONSTRUED AGAINST THE DRAFTER SHALL NOT BE USED TO CONSTRUE THIS LICENSE AGAINST A CONTRIBUTOR. COVERED SOFTWARE IS PROVIDED UNDER THIS LICENSE ON AN “AS IS” BASIS, WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED, IMPLIED, OR STATUTORY, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT THE COVERED SOFTWARE IS FREE OF DEFECTS, MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE COVERED SOFTWARE IS WITH YOU. SHOULD ANY COVERED SOFTWARE PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT ANY CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY SERVICING, REPAIR, OR CORRECTION. UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER TORT (INCLUDING NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL ANY CONTRIBUTOR, OR ANYONE WHO DISTRIBUTES COVERED SOFTWARE AS PERMITTED ABOVE, BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOST PROFITS, LOSS OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER COMMERCIAL DAMAGES OR LOSSES, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGES. THIS LIMITATION OF LIABILITY SHALL NOT APPLY TO LIABILITY FOR DEATH OR PERSONAL INJURY RESULTING FROM SUCH PARTY’S NEGLIGENCE TO THE EXTENT APPLICABLE LAW PROHIBITS SUCH LIMITATION. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THIS EXCLUSION AND LIMITATION MAY NOT APPLY TO YOU."\nThe rights granted in the Freedom Grant are irrevocable, subject to the following conditions:\nThe rights granted under this License will terminate automatically if You fail to comply with any of its terms. However, if You become compliant, then the rights granted under this License from a particular Contributor are reinstated (a) provisionally, unless and until such Contributor explicitly and finally terminates Your grants, and (b) on an ongoing basis, if such Contributor fails to notify You of the non-compliance by some reasonable means prior to 60 days after You have come back into compliance. Moreover, Your grants from a particular Contributor are reinstated on an ongoing basis if such Contributor notifies You of the non-compliance by some reasonable means, this is the first time You have received notice of non-compliance with this License from such Contributor, and You become compliant prior to 30 days after Your receipt of the notice. If You initiate litigation against any entity by asserting a patent infringement claim (excluding declaratory judgment actions, counter-claims, and cross-claims) alleging that a Contributor Version directly or indirectly infringes any patent, then the rights granted to You by any and all Contributors for the Covered Software under the Freedom Grant of this License shall terminate. In the event of termination, all end user license agreements (excluding distributors and resellers) which have been validly granted by You or Your distributors under this License prior to termination shall survive termination.\nANY LITIGATION RELATING TO THIS LICENSE MAY BE BROUGHT ONLY IN THE COURTS OF A JURISDICTION WHERE THE DEFENDANT MAINTAINS ITS PRINCIPAL PLACE OF BUSINESS AND SUCH LITIGATION SHALL BE GOVERNED BY LAWS OF THAT JURISDICTION, WITHOUT REFERENCE TO ITS CONFLICT-OF-LAW PROVISIONS. NOTHING IN THIS SECTION SHALL PREVENT A PARTY’S ABILITY TO BRING CROSS-CLAIMS OR COUNTER-CLAIMS. THIS LICENSE REPRESENTS THE COMPLETE AGREEMENT CONCERNING THE SUBJECT MATTER HEREOF. IF ANY PROVISION OF THIS LICENSE IS HELD TO BE UNENFORCEABLE, SUCH PROVISION SHALL BE REFORMED ONLY TO THE EXTENT NECESSARY TO MAKE IT ENFORCEABLE. ANY LAW OR REGULATION WHICH PROVIDES THAT THE LANGUAGE OF A CONTRACT SHALL BE CONSTRUED AGAINST THE DRAFTER SHALL NOT BE USED TO CONSTRUE THIS LICENSE AGAINST A CONTRIBUTOR. COVERED SOFTWARE IS PROVIDED UNDER THIS LICENSE ON AN “AS IS” BASIS, WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED, IMPLIED, OR STATUTORY, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT THE COVERED SOFTWARE IS FREE OF DEFECTS, MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE COVERED SOFTWARE IS WITH YOU. SHOULD ANY COVERED SOFTWARE PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT ANY CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY SERVICING, REPAIR, OR CORRECTION. UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER TORT (INCLUDING NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL ANY CONTRIBUTOR, OR ANYONE WHO DISTRIBUTES COVERED SOFTWARE AS PERMITTED ABOVE, BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOST PROFITS, LOSS OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER COMMERCIAL DAMAGES OR LOSSES, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGES. THIS LIMITATION OF LIABILITY SHALL NOT APPLY TO LIABILITY FOR DEATH OR PERSONAL INJURY RESULTING FROM SUCH PARTY’S NEGLIGENCE TO THE EXTENT APPLICABLE LAW PROHIBITS SUCH LIMITATION. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THIS EXCLUSION AND LIMITATION MAY NOT APPLY TO YOU.\nEnter 'y' to indicate that you have read and agree to the [Insert Software Name] End-User License Agreement and enter 'n' to indicate otherwise."
-
-#endif // LICENSEMANAGER_H_INCLUDED
 
 ////////////////////////////////////////////////// END OF LICENSEMANAGER.H //////////////////////////////////////////////
 
@@ -295,38 +211,11 @@ char* leaf_retrieveFile(char *location);
  * License: MIT
 */
 
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#ifndef LOGGER_H_INCLUDED
-#define LOGGER_H_INCLUDED
-
 /// Logs data to file on function call ///
 
 void leaf_setLogger(char *location);
 void leaf_log(char *message);
 void leaf_free();
-
-#endif // LOGGER_H_INCLUDED
 
 /////////////////////////////////////////////// END OF LOGGER.H ////////////////////////////////////////////////////
 
@@ -339,39 +228,12 @@ void leaf_free();
  * License: MIT
 */
 
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#ifndef NOOBENCRYPTION_H_INCLUDED
-#define NOOBENCRYPTION_H_INCLUDED
-
 // A very secure encryption and fast algorithm because it is not known to the world and it uses shift based encryption
 char* leaf_encrypt(double key, char *data);
 char* leaf_decrypt(double key, char *data);
 
 void leaf_setCryptoSeed(long double seed);
 int leaf_cryptorand();
-
-#endif // NOOBENCRYPTION_H_INCLUDED
 
 /////////////////////////////////////////////// END OF NOOBENCRYPTION.H /////////////////////////////////////////////////////
 
@@ -383,28 +245,6 @@ Author(s): Stefan Gustavson<stefan.gustavson@liu.se>, suncloudsmoon
 Origin: https://github.com/stegu/perlin-noise
 License: Public Domain
 */
-
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
 
 //////////////////////// Original Author Stuff [Start] /////////////////////////////////////////////
 
@@ -453,36 +293,9 @@ void leaf_setSeed(int seed);
  * License: MIT
 */
 
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#ifndef SIMPLEMALLOC_H_INCLUDED
-#define SIMPLEMALLOC_H_INCLUDED
-
 char* leaf_charmalloc(int length);
 int* leaf_intmalloc(int length);
 float* leaf_floatmalloc(int length);
-
-#endif // SIMPLEMALLOC_H_INCLUDED
 
 ////////////////////////////////////////////////////// END OF SIMPLEMALLOC.H ////////////////////////////////////////////////
 
@@ -495,37 +308,11 @@ float* leaf_floatmalloc(int length);
  * License: MIT
 */
 
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#ifndef STRINGBASICS_H_INCLUDED
-#define STRINGBASICS_H_INCLUDED
-
 char* leaf_initString(int length);
 void leaf_memToZero(void* item);
 char* leaf_generateWord(int num);
 void leaf_addStrings(char *dest, char *one, char *two, char *three);
 
-#endif // STRINGBASICS_H_INCLUDED
 
 ///////////////////////////////////////// END OF STRINGBASICS.H //////////////////////////////////////////////////////////
 
@@ -537,31 +324,6 @@ void leaf_addStrings(char *dest, char *one, char *two, char *three);
  * Origin: N/A
  * License: MIT
 */
-
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-#ifndef URLCREATOR_H_INCLUDED
-#define URLCREATOR_H_INCLUDED
 
 typedef struct {
     char *url;
@@ -575,8 +337,6 @@ typedef struct {
 
 void leaf_createURLShortcut(leaf_shortcut *sh);
 
-#endif // URLCREATOR_H_INCLUDED
-
 ////////////////////////////////////////////////// END OF URLCREATOR.H ///////////////////////////////////////////////////
 
 ///////////////////////////////////////////////// START OF WJCRYPTOLIB_SHA256.H //////////////////////////////////////////
@@ -587,28 +347,6 @@ void leaf_createURLShortcut(leaf_shortcut *sh);
  * Origin: N/A
  * License: MIT
 */
-
-/*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //  WjCryptLib_Sha256
@@ -626,8 +364,8 @@ void leaf_createURLShortcut(leaf_shortcut *sh);
 //  IMPORTS
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <stdint.h>
-#include <stdio.h>
+//#include <stdint.h>
+//#include <stdio.h>
 
 typedef struct
 {
@@ -701,3 +439,5 @@ void
     );
 
 ///////////////////////////////////////////////// END OF WJCRYPTOLIB_SHA256.H //////////////////////////////////////////
+
+#endif // LEAFGAME2D_H_INCLUDED
