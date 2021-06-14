@@ -1,12 +1,4 @@
 /*
- * Description:
- * Version: 0.1
- * Author(s): suncloudsmoon
- * Origin: N/A
- * License: MIT & Others
- */
-
-/*
  * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,6 +18,14 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
+ */
+
+/*
+ * Description: Contains the most commonly used methods that I use a lot in C projects
+ * Version: 0.2
+ * Author(s): suncloudsmoon
+ * Origin: N/A
+ * License: MIT & Others
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@
 /*
  * Description: A simple neural network library that follows the basic neural network structure
  * Version: [Origin: 1.0], [Modified: 1.1]
- * Author(s): Lewis Van Winkle<LV@codeplea.com>, suncloudsmoon
+ * Author(s): Lewis Van Winkle<LV@codeplea.com>
  * Origin: https://github.com/codeplea/genann/blob/master/genann.c
  * License: Zlib
  */
@@ -464,14 +464,6 @@ void leaf_brain_write(leaf_brain const *ann, FILE *out) {
 ////////////////////// END OF BRAIN.C ////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////// START OF COMMANDBASICS.C ////////////////////////////////////////////////////
-/*
- * Description: An implementation of the Perlin noise function by Ken Perlin in 1D and 2D
- * Version: 6/12/2021
- * Author(s): suncloudsmoon
- * Origin: N/A
- * License: MIT
- */
-
 static char** locations;
 static int numLocations = 1000;
 static int locationPos = 0;
@@ -546,13 +538,6 @@ void leaf_freeCommandBasics() {
 ///////////////////////////////////////////// END OF COMMANDBASICS.C ////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////// START OF FILEMANAGER.C ///////////////////////////////////////////////////////////////
-/*
- * Description: An implementation of the Perlin noise function by Ken Perlin in 1D and 2D
- * Version: 6/12/2021
- * Author(s): suncloudsmoon
- * Origin: N/A
- * License: MIT
- */
 
 // Local Functions
 static void addMemory(int num, char *input);
@@ -594,26 +579,8 @@ static void addMemory(int num, char *input) {
 }
 /////////////////////////////////////////////// END OF FILEMANAGER.C /////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////// START OF LICENSEMANAGER.C /////////////////////////////////////////////////
-/*
- * Description: An implementation of the Perlin noise function by Ken Perlin in 1D and 2D
- * Version: 6/12/2021
- * Author(s): suncloudsmoon
- * Origin: N/A
- * License: MIT
- */
-
-
-//////////////////////////////////////////////////// END OF LICENSEMANAGER.C //////////////////////////////////////////////////
 
 ////////////////////////////////////////////// START OF NOOBENCRYPTION.C //////////////////////////////////////////////////////
-/*
- * Description: An implementation of the Perlin noise function by Ken Perlin in 1D and 2D
- * Version: 6/12/2021
- * Author(s): suncloudsmoon
- * Origin: N/A
- * License: MIT
- */
 
 static long double a = 37, c = 997, m = INT_MAX;
 static long double randNum;
@@ -694,15 +661,6 @@ int leaf_cryptorand() {
 ///////////////////////////////////////// END OF NOOBENCRYPTION.C //////////////////////////////////////////////////
 
 ///////////////////////////////////////// START OF PERLIN.C /////////////////////////////////////////////////
-/*
- * Description: An implementation of the Perlin noise function by Ken Perlin in 1D and 2D
- * Version: [Origin: Jun 8, 2016], [Modified: April 19, 2021]
- * Author(s): Stefan Gustavson<stefan.gustavson@liu.se>, suncloudsmoon
- * Origin: https://github.com/stegu/perlin-noise
- * License: Public Domain
- */
-
-//////////////////////// Original Author Stuff [Start] /////////////////////////////////////////////
 
 // noise1234
 //
@@ -730,8 +688,6 @@ int leaf_cryptorand() {
  * It is highly reusable without source code modifications.
  *
  */
-
-//////////////////////// Original Author Stuff [End] /////////////////////////////////////////////
 
 /// Header Include Stuff ///
 
@@ -969,13 +925,6 @@ static float pnoise2( float x, float y, int px, int py ) {
 //////////////////////////////////////////////////// END OF PERLIN.C ////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////// START OF SIMPLEMALLOC.C ////////////////////////////////////////////////
-/*
- * Description: An implementation of the Perlin noise function by Ken Perlin in 1D and 2D
- * Version: 6/12/2021
- * Author(s): suncloudsmoon
- * Origin: N/A
- * License: MIT
- */
 
 char* leaf_charmalloc(int length) {
     return (char *) (malloc(length * sizeof(char)));
@@ -991,13 +940,6 @@ float* leaf_floatmalloc(int length) {
 ////////////////////////////////////////////////// END OF SIMPLEMALLOC.C //////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////// START OF URLCREATOR.C /////////////////////////////////////////////////////////
-/*
-Description: A simple system in which you can create a .url file by setting the attributes of a shortcut using the struct Shortcut descripted in urlcreator.h
-Version: 5/29/2021
-Author(s): suncloudsmoon
-Origin: N/A
-License: MIT
-*/
 
 /**
 Creates a URL shortcut according to the attributes in the Shortcut struct memory block.
@@ -1025,14 +967,6 @@ void leaf_createURLShortcut(leaf_shortcut *link) {
 /////////////////////////////////////////////////// END OF URLCREATOR.C /////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////// START OF WJCRYPTLIB_SHA256.C ///////////////////////////////////////////////////
-
-/*
- * Description: Hashes a string according to the SHA-2 specification
- * Origin: https://github.com/WaterJuice/WjCryptLib/blob/master/lib/WjCryptLib_Sha256.c
- * Version: [Origin: Mar 15, 2018], [Modified: May 10, 2021]
- * Author(s): Tom St Denis<tomstdenis@gmail.com>, WaterJuice<https://github.com/WaterJuice>, suncloudsmoon
- * License: Unlicense<https://github.com/WaterJuice/WjCryptLib/blob/master/UNLICENSE>
- */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //  WjCryptLib_Sha256
