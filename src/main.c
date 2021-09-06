@@ -43,13 +43,13 @@ static void test_estr() {
 	jtrcat(str, "World!");
 
 	// String stats
-	printf("Str Content: %s, %zu, %zu\n", str->text, str->length, str->allocated_length);
+	printf("Str Content: %s, %zu, %zu\n", str->buf, str->length, str->allocated_length);
 
 	jtr_t *newStr = malloc(sizeof(jtr_t));
 	*newStr = (jtr_t ) { 0 };
 	jtrsub(newStr, str, 0, 5);
 
 	// After substring
-	printf("After substring: %s, %zu, %zu\n", newStr->text, newStr->length, newStr->allocated_length);
+	printf("After substring: %s, %zu, %zu\n", newStr->buf, newStr->length, newStr->allocated_length);
 
 }
