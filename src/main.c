@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, suncloudsmoon and the LeafGame2D contributors.
+ * Copyright (c) 2021, suncloudsmoon and the Leaf C Extended Library contributors.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,7 +38,7 @@ int main() {
 
 static void test_estr() {
 	jtr_t *str = malloc(sizeof(jtr_t));
-	str->optimization_level = 0.0;
+	*str = (jtr_t ) { 0 };
 	jtrnew(str, "Hello ");
 	jtrcat(str, "World!");
 
