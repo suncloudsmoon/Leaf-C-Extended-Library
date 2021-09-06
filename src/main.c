@@ -38,10 +38,18 @@ int main() {
 
 static void test_estr() {
 	jtr_t *str = malloc(sizeof(jtr_t));
-	jtrnew(str, "");
-	jtrcat(str, "Hello, World! ");
-	jtrcat(str, "Hello, World!");
+	str->optimization_level = 0.0;
+	jtrnew(str, "Hello ");
+	jtrcat(str, "World!");
 
 	// String stats
-	printf("Str Content: %s, %zu, %zu\n", str->text, str->allocated_length, str->length);
+	printf("Str Content: %s, %zu, %zu\n", str->text, str->length, str->allocated_length);
+
+	jtr_t *newStr = malloc(sizeof(jtr_t));
+	*newStr = (jtr_t ) { 0 };
+	jtrsub(newStr, str, 0, 5);
+
+	// After substring
+	printf("After substring: %s, %zu, %zu\n", newStr->text, newStr->length, newStr->allocated_length);
+
 }

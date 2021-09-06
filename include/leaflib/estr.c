@@ -98,7 +98,7 @@ static int automatic_realloc(jtr_t *dest, size_t add_factor) {
 			return -1;
 		}
 		dest->text = mem_check;
-		dest->allocated_length += total_add_math;
+		dest->allocated_length = total_add_math;
 	}
 	return 0;
 }

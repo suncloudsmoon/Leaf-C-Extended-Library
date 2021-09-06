@@ -37,7 +37,7 @@ typedef struct {
 // Our Custom String Library
 
 /*
- * Instead of throwing an error, we return a error code
+ * Mallocs dest->text with strdup and sets the length and allocated length of jtr_t by using the strlen() of src.
  */
 int jtrnew(jtr_t *dest, char *src);
 
@@ -46,9 +46,19 @@ char* jtrcpy_s(jtr_t *dest, jtr_t *src);
 char* jtrcat(jtr_t *dest, char *src);
 char* jtrcat_s(jtr_t *dest, jtr_t *src);
 
+/*
+ * CAUTION: you need to zero out dest (memset, calloc, etc.) before you pass it in there
+ */
 int jtrsub(jtr_t *dest, jtr_t *src, size_t start, size_t end);
 
+/*
+ * Sets the first character of dest->text to NULL terminator - '\0' and sets the length of jtr_t struct to 0.
+ */
 void jtrcls(jtr_t *dest);
+/*
+ * Frees dest->text and not the structure itself.
+ * You need to free the structure itself manually by calling free() on it.
+ */
 void jtrfree(jtr_t *dest);
 
 // Extension to the C String Library
