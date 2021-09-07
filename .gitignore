@@ -2,3 +2,5 @@
 Debug/
 .cproject
 .project
+linux gcc.sh
+memcheck.sh

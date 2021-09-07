@@ -55,6 +55,9 @@ char* jtrcpy_s(jtr_t *dest, const jtr_t *src);
 char* jtrcat(jtr_t *dest, const char *src);
 char* jtrcat_s(jtr_t *dest, const jtr_t *src);
 
+jtr_t* jtrdup(char *src);
+jtr_t* jtrdup_s(jtr_t *src);
+
 /*
  * CAUTION: you need to zero out dest (memset, calloc, etc.) before you pass it in there
  */
@@ -79,6 +82,6 @@ void jtrlist_free(jtrlist_t *list);
 
 // Extension to the C String Library
 
-int strsub(char *dest, const char *src, size_t start, size_t end);
+void strsub(char *dest, const char *src, size_t start, size_t end);
 
 #endif /* INCLUDE_LEAFLIB_ESTR_H_ */
